@@ -1,0 +1,88 @@
+body{
+  color: #8892af;
+  background-color: #0A192F;
+  font-family: Raleway;
+}
+
+main{
+  padding: 10px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+
+header{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  align-items: center;
+}
+
+
+header a{
+  text-decoration: none;
+  color: inherit;
+}
+
+
+header a.logo{
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+
+header nav{
+   display: flex;
+   gap: 15px;
+}
+
+
+/* post style */
+
+
+/* img  */
+img{
+  max-width: 100%;
+}
+
+div.post{
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 20px;
+  margin-bottom: 50px; 
+}
+
+
+div.post div.img{
+  width: 40%;
+}
+
+
+
+
+div.post div.texts h2 {
+  margin: 0;
+  font-size: 1.8 rem;
+}
+
+
+
+div.post div.info {
+  margin: 6px 0;
+  color: #aaa;
+  font-size: .7rem;
+  font-weight: bold;
+  display: flex;
+  gap: 10px;
+
+}
+
+div.post p.info div.author {
+  color: #333;
+  
+}
+div.post p.summary{
+  margin: 6px 0;
+  line-height: 1.4rem;
+}
