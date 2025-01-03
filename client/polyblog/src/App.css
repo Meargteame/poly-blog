@@ -1,7 +1,7 @@
 body{
   color: #8892af;
   background-color: #0A192F;
-  font-family: Raleway;
+  font-family: Lato;
 }
 
 main{
@@ -86,3 +86,17 @@ div.post p.summary{
   margin: 6px 0;
   line-height: 1.4rem;
 }
+
+
+
+/* login and register form  styles*/
+
+
+form.login , form.register{
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+
+
+
