@@ -100,3 +100,14 @@ form.login , form.register{
 
 
 
+
+input{
+  display: block;
+  margin-bottom:px ;
+  width: 100%;
+  padding: 5px 7px;
+  border: 2px solid #ddd;
+  background-color: #fff;
+  border-radius: 8px;
+  
+}
