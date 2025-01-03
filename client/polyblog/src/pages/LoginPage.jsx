@@ -5,7 +5,8 @@ export default function RegisterPage(){
         const [username,setUsername] = useState('');
         const [password,setPassword] = useState('');  
 
-      
+       
+        
       return (
           <form className="register" onSubmit={register}>
               <h1>Login</h1>
