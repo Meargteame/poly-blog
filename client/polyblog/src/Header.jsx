@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Header(){
     return (
         <header>
-            <a onToggle="/" className='logo'>PolyBlog </a>
+            <a to="/" className='logo'>PolyBlog </a>
             <nav>
             <Link to='/login' > Login </Link>
             <Link to='/register' > Register  </Link>
