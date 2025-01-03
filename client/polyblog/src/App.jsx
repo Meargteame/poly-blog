@@ -8,22 +8,20 @@ function App() {
 
   return (
       <Routes>
+       
+        <Route path='/' element={<Layout/>} >
+
         <Route index element={     
-          <main>
-          <Header/>
-          <Post/>
-          <Post/>
-        </main>
+         <Post/>
         }/>
 
         <Route path={'/login'} element={
-          <main>
-            <Header/>
-              <div>
-                login Page 
-            </div>
-          </main>
+          <div>
+            login Page 
+          </div>
         }/>
+
+        </Route>
     </Routes>
 
   )
