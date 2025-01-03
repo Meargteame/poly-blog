@@ -1,4 +1,4 @@
-export default function IndexPage {
+export default function IndexPage() {
     return (
         <>
             <Post/>
