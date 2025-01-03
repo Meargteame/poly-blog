@@ -1,13 +1,16 @@
+// express 
 const express = require('express');
-const cors = require('cors');
 const app = express();
 
-
+// cors 
+const cors = require('cors');
 app.use(cors());
 
 
+
 app.post('/register',(req,res)=>{
-    res.json('Test Ok1')  
+    console.log("it is hited ")
+    res.json('Test Ok2')  
 });
 app.listen(4000);
 
