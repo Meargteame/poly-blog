@@ -12,12 +12,10 @@ mongoose.connect('mongodb+srv://poly:05uXPFqeySH44SSu@cluster0.i3mni.mongodb.net
 
 
 // Register API
-app.post('/register', (req, res) => {
+app.post('/register',async (req, res) => {
   const { username, password } = req.body; 
-  User.create({
-    
-  })
-  res.json({ requestedData: { username, password } });
+  const UserDoc = await User.create({ username, password});
+  res.json(UserDoc);
 });
 
 // Login API
