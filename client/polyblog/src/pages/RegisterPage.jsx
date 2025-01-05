@@ -4,6 +4,8 @@ export default function RegisterPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+
+  // register function which will end /POST data to the backend from the frontend 
   async function register(ev) {
     ev.preventDefault();
     try {

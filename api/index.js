@@ -1,10 +1,16 @@
 const express = require('express');
+const mongoose = require("mongoose");
+
 const cors = require('cors');
 
 const app = express();
 
+
+mongoose.connect('mongodb+srv://poly:05uXPFqeySH44SSu@cluster0.i3mni.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 app.use(cors());
 app.use(express.json());
+
+
 
 // Register API
 app.post('/register', (req, res) => {
@@ -24,9 +30,9 @@ app.listen(4000, () => {
 });
 
 
-// 05uXPFqeySH44SSu
+// 
 
 
 // {
-//     mongodb+srv://poly:<db_password>@cluster0.i3mni.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+//     
 // }
