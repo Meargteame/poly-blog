@@ -8,9 +8,9 @@ app.use(cors());
 app.use(express.json());
 
 
-
-
 mongoose.connect('mongodb+srv://poly:05uXPFqeySH44SSu@cluster0.i3mni.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+
+
 // Register API
 app.post('/register', (req, res) => {
   const { username, password } = req.body; 
