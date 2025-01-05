@@ -1,33 +1,24 @@
-// express 
 const express = require('express');
-// cors 
 const cors = require('cors');
 
 const app = express();
 
-
-
-
 app.use(cors());
-// register api 
-app.post('/register',(req,res) => {
-    res.json("Okay 2")
-})
+app.use(express.json());
 
+// Register API
+app.post('/register', (req, res) => {
+  const { username, password } = req.body; // Correct destructuring
+  res.json({ requestedData: { username, password } });
+});
 
-// login api 
-app.post('/login',(req,res) => {
-    res.json("Okay 2")
-})
+// Login API
+app.post('/login', (req, res) => {
+  const { username, password } = req.body; // Correct destructuring
+  console.log(username, password);
+  res.json({ requestedData: { username, password } });
+});
 
-
-
-
-
-
-
-
-
-app.listen(4000);
-
-
+app.listen(4000, () => {
+  console.log('Server running on http://localhost:4000');
+});
