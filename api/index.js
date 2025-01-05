@@ -6,15 +6,14 @@ const cors = require('cors');
 const app = express();
 
 
-mongoose.connect('mongodb+srv://poly:05uXPFqeySH44SSu@cluster0.i3mni.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect('mongodb+srv://mearegteame99995555:R702Ca8aj8imMPb1@cluster0.llc8i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 app.use(cors());
 app.use(express.json());
-
-
 
 // Register API
 app.post('/register', (req, res) => {
   const { username, password } = req.body; // Correct destructuring
+  console.log(password,username);
   res.json({ requestedData: { username, password } });
 });
 
@@ -30,9 +29,3 @@ app.listen(4000, () => {
 });
 
 
-// 
-
-
-// {
-//     
-// }
