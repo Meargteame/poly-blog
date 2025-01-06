@@ -10,8 +10,8 @@ const fs = require('fs');
 
 app.use(cors({credentials:true,origin:'http://localhost:3000'}));
 app.use(express.json());
-const uri = ''
-mongoose.connect('');
+const uri = 'mongodb+srv://mongodb:mongodb@cluster0.wr324.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+mongoose.connect(uri);
 
 app.post('/register', async (req,res) => {
   const {username,password} = req.body;
