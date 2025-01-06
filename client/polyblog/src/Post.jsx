@@ -1,21 +1,25 @@
-export default function Post(){
-    return (
-        <div className="post">
-          
-            <div className="image">
-                <img src='https://jamiahamdardonline.in/assets/img/blog/cracking-the-c-programming-code-tips-and-tricks.jpg' alt='Cracking the C Programming Code: Tips and Tricks'/>
-            </div>
-            <div className='texts'>
-                <h2>Cracking the C Programming Code: Tips and Tricks</h2>
-                <p className="info">
-                <a className="author">
-                    Meareg 
-                </a>
-                <time>   2024-01-02 16:45 </time>
-                </p>
-                <p className='summary'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore nostrum explicabo odio, eligendi exercitationem necessitatibus eveniet ipsam, dicta expedita quisquam ab suscipit, dolor quasi laudantium doloremque sequi odit magni voluptas.</p>
-       </div>
-      </div>
+import {formatISO9075} from "date-fns";
+import {Link} from "react-router-dom";
 
-    )
+export default function Post({_id,title,summary,cover,content,createdAt,author}) {
+
+  return (
+    <div className="post">
+      <div className="image">
+        <Link to={`/post/${_id}`}>
+          <img src={'http://localhost:4000/'+cover} alt=""/>
+        </Link>
+      </div>
+      <div className="texts">
+        <Link to={`/post/${_id}`}>
+        <h2>{title}</h2>
+        </Link>
+        <p className="info">
+          <a className="author">{author.username}</a>
+          <time>{formatISO9075(new Date(createdAt))}</time>
+        </p>
+        <p className="summary">{summary}</p>
+      </div>
+    </div>
+  );
 }
