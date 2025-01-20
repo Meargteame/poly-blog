@@ -1,5 +1,28 @@
+body{
+  background-color: #2C3E50  ;
+  color: #fff   ;
+  font-family: 'JetBrains Mono', monospace;
+}
 main{
   padding: 10px;
   max-width: 700px;
   margin: 0 auto;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+}
+header a{
+  text-decoration: none;
+  color: #A7C7E7;
+
+}
+
+header a.logo{
+  font-weight: bolder;
+  color: #0885b6;
+}
+header nav{
+  display: flex;
+  gap: 15px;
 }
