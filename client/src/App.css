@@ -1,7 +1,10 @@
 body{
-  background-color: #2C3E50  ;
-  color: #fff   ;
+  background-color: #FFFFFF   ;
+  color: #333333    ;
   font-family: 'JetBrains Mono', monospace;
+}
+img{
+  max-width: 100%;
 }
 main{
   padding: 10px;
@@ -11,18 +14,53 @@ main{
 header{
   display: flex;
   justify-content: space-between;
+  margin-bottom: 50px;
+  align-items: center;
+  margin-top: 20px;
 }
 header a{
   text-decoration: none;
-  color: #A7C7E7;
+  color: #1E73BE ;
+
 
 }
 
 header a.logo{
   font-weight: bolder;
-  color: #0885b6;
+  color: #1E73BE ;
+  font-size: 1.4rem;
 }
 header nav{
   display: flex;
   gap: 15px;
+}
+div.post{
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr ;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+
+div.post div.texts h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+div.post p.info{
+  margin: 0;
+  color: #aaa;
+  font-size: 0.7rem;
+  font-weight: bold;
+  margin: 6px 0;
+  display: flex;
+  gap: 5px;
+}
+
+div.post p.info a.author{
+  color: #333;
+}
+div.post p.summary {
+  margin: 10px 0;
+  line-height: 1.2 rem;
 }
