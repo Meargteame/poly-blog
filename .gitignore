@@ -1,0 +1,50 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.pnpm-debug.log*
+
+# Build directories (React frontend build)
+build/
+dist/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS and Editor-specific files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.sublime-workspace
+
+# Logs
+logs/
+*.log
+logs/**/*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.bak
+
+# React-specific
+/.eslintcache
+/.next
+/coverage
+
+# MongoDB data files (if running locally, otherwise ignore if using hosted DB)
+*.db
+*.db-wal
+
+# Jest coverage
+coverage/
+
+# Other
+/.env*
+/node_modules/
