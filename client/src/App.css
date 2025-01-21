@@ -64,3 +64,20 @@ div.post p.summary {
   margin: 10px 0;
   line-height: 1.2 rem;
 }
+
+
+/* form login and form register styles  */
+
+form.login , form.register{
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+
+
+/* input styles */
+input{
+  display: block;
+  margin-bottom: 5px;
+  width: 100%;
+}
