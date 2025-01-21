@@ -15,7 +15,7 @@ app.post('/register', (req, res) => {
     console.log(req.body);
     const { username ,password } = req.body;
     // Send a response back to the frontend
-    res.json('Test Ok2');
+    res.json({ requestData:{username,password}});
 });
 
 app.listen(PORT, () => {
