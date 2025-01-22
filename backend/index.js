@@ -18,9 +18,10 @@ mongoose.connect('mongodb://localhost:27017/crud')
 })
 
 
-app.post('/register', (req,res) => {
+app.post('/register', async (req,res) => {
   const { username,password } = req.body;
-  res.json({ requestData:{username,password}});
+  const userDoc = await User.create({username,password});
+  res.json(userDoc);
 })
 
 
