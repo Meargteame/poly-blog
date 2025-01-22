@@ -1,7 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const User = require('./models/User'); // Assuming the User model exists
+const User = require('./models/User'); 
+const bcrypt = require('bcryptjs');
+
 const app = express();
 const PORT = 4000;
 
