@@ -38,7 +38,7 @@ Because your thoughts deserve a **polished, organized, and fun-to-use platform**
 
 1. **Clone the Repo**:
    ```bash
-   git clone https://github.com/yourusername/poly-blog.git
+   git clone https://github.com/meargteame/poly-blog.git
    cd poly-blog
    ```
 2. **Dependencies**:
