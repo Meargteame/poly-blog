@@ -5,9 +5,9 @@ const User = require('./models/User'); // Assuming the User model exists
 const app = express();
 const PORT = 4000;
 
-// MongoDB connection string (customized)
-// const mongoURI ='mongodb+srv:meareg:admin@cluster0.dlasb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
-// // Connect to MongoDB
+MongoDB connection string (customized)
+const mongoURI ='mongodb+srv:meareg:admin@cluster0.dlasb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+// Connect to MongoDB
 mongoose.connect(mongoURI, { 
   useNewUrlParser: true, 
   useUnifiedTopology: true,
