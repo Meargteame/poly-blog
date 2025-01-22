@@ -7,7 +7,7 @@ const bcrypt = require('bcryptjs');
 const app = express();
 const PORT = 4000;
 
-const salt = '8724723423bfbdsf';
+const salt = bcrypt.genSaltSync(10);
 
 // Middleware to enable CORS
 app.use(cors());
