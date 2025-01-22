@@ -74,13 +74,4 @@ Built with passion by [Your Name]. Inspired by my love for creativity and writin
 
 4. **License**:
    This project is licensed under the MIT License.
-
-   ```bash
-
-   ```
-
-Feel free to modify and personalize this further! Add some screenshots or GIFs of your app for extra visual appeal.
-
-```
-
-```
+   Feel free to modify and personalize this further! Add some screenshots or GIFs of your app for extra visual appeal.
