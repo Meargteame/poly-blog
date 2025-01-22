@@ -1,13 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const User = require('./models/User'); 
-const bcrypt = require('bcryptjs');
-
+const User = require('./models/User'); // Assuming the User model exists
 const app = express();
 const PORT = 4000;
-
-const salt = '8724723423bfbdsf';
 
 // Middleware to enable CORS
 app.use(cors());mongodb://localhost:27017/crud
@@ -26,10 +22,7 @@ app.post('/register', async (req,res) => {
   const { username,password } = req.body;
 
   try{
-    const userDoc = await User.create({
-      username,
-      password:bcrypt.hashSync(password,salt)
-    });
+    const userDoc = await User.create({username,password});
     console.log(username,password);
     console.log(userDoc)
     res.json(userDoc);
