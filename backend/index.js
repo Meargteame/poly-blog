@@ -10,7 +10,7 @@ const PORT = 4000;
 const salt = '8724723423bfbdsf';
 
 // Middleware to enable CORS
-app.use(cors());
+app.use(cors());mongodb://localhost:27017/crud
 app.use(express.json())
 
 mongoose.connect('mongodb://localhost:27017/crud')
