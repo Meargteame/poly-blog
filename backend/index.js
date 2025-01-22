@@ -7,6 +7,8 @@ const bcrypt = require('bcryptjs');
 const app = express();
 const PORT = 4000;
 
+const salt = '8724723423bfbdsf';
+
 // Middleware to enable CORS
 app.use(cors());
 app.use(express.json())
@@ -24,7 +26,10 @@ app.post('/register', async (req,res) => {
   const { username,password } = req.body;
 
   try{
-    const userDoc = await User.create({username,password});
+    const userDoc = await User.create({
+      username,
+      password:bcrypt.hashSync(password,salt)
+    });
     console.log(username,password);
     console.log(userDoc)
     res.json(userDoc);
