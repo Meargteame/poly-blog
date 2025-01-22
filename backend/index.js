@@ -5,25 +5,17 @@ const User = require('./models/User'); // Assuming the User model exists
 const app = express();
 const PORT = 4000;
 
-// MongoDB connection string (customized)
-// const mongoURI ='mongodb+srv:meareg:admin@cluster0.dlasb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
-// // Connect to MongoDB
-mongoose.connect(mongoURI, { 
-  useNewUrlParser: true, 
-  useUnifiedTopology: true,
-})
-  .then(() => {
-    console.log('MongoDB connected successfully');
-  })
-  .catch((err) => {
-    console.error('Error connecting to MongoDB:', err);
-  });
-
 // Middleware to enable CORS
 app.use(cors());
 app.use(express.json())
 
-mongoose.connect('mongodb://localhost:27017');
+mongoose.connect('mongodb://localhost:27017/crud')
+.then(()=>{
+  console.log("Db connected succesfully!");
+})
+.catch(()=>{
+  console.log('Db is not connected !');
+})
 
 
 app.post('/register', (req,res) => {
