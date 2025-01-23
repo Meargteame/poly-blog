@@ -38,6 +38,22 @@ app.post('/register', async (req, res) => {
   }
 });
 
+
+
+
+
+
+// loggin endpoint 
+
+
+app.post('/login', async (req, res) => {
+  const { username, password } = req.body;
+  const userDoc = await User.findOne({ username });
+  res.json(userDoc);
+});
+
+
+
 app.listen(4000, () => {
   console.log(`Server running on port ${PORT}`);
 });
