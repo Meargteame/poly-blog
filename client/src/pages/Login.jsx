@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./LoginForm.css";
 import { Navigate } from "react-router-dom";
+import { UserContext } from "../UserContext";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [redirect,setRedirect] = useState(false);
+  const {setUserInfo} =useContext(UserContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission
@@ -21,10 +23,12 @@ function Login() {
       });
 
       if (response.ok) {
-        const data = await response.json();
-        console.log("Login successful:", data); // Log the JSON response
-        alert("Login successful!");
-        setRedirect(true)
+         response.json().then(userInfo => {
+          setUserInfo(userInfo);
+          setRedirect(true)
+
+        })
+     
       } else {
         console.error("Login failed");
         alert("Login failed. Please try again.");
