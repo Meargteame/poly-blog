@@ -57,7 +57,7 @@ app.post("/login", async (req, res) => {
     if (passOk) {
       jwt.sign({ username, id: userDoc._id }, secret, {}, (err, token) => {
         if (err) throw err;
-        res.cookie("token", token, { httpOnly: true }).json({ message: "Login successful!" });
+        res.cookie("token", token, { httpOnly: true }).json({ id: userDoc._id ,username});
       });
     } else {
       res.status(400).json("Wrong credentials!");
@@ -94,3 +94,4 @@ app.post("/logout", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+ 
