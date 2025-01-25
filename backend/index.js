@@ -5,7 +5,9 @@ const User = require("./models/User"); // Assuming this is correctly implemented
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
-
+const multer = require('multer')
+const uploadMiddlware = multer({ dest: 'uploads/' })
+const fs = require('fs');
 const app = express();
 const PORT = 4000;
 
@@ -90,6 +92,18 @@ app.post("/logout", (req, res) => {
   res.cookie("token", "", { httpOnly: true }).json("OK");
 });
 
+
+
+// api endpont for the create  post page
+
+app.post('/post',uploadMiddlware.single('file'),(req,res) => {
+  const {originalname,path} = req.file;
+  const parts = originalname.split('.');
+  const ext = parts[parts.length -1];
+  const newPath = path +'.'+ ext;
+  fs.renameSync(path.newPath );
+  res.json({extention});
+})
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
