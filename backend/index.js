@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const User = require("./models/User"); // Assuming this is correctly implemented
+const User = require("./models/User"); 
+const Post = require('./models/Post')
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
@@ -96,14 +97,29 @@ app.post("/logout", (req, res) => {
 
 // api endpont for the create  post page
 
-app.post('/post',uploadMiddlware.single('file'),(req,res) => {
-  const {originalname,path} = req.file;
-  const parts = originalname.split('.');
-  const ext = parts[parts.length -1];
-  const newPath = path +'.'+ ext;
-  fs.renameSync(path.newPath );
-  res.json({extention});
-})
+app.post('/post', uploadMiddlware.single('file'), async (req, res) => {
+  try {
+    const { originalname, path } = req.file;
+    const parts = originalname.split('.');
+    const ext = parts[parts.length - 1];
+    const newPath = path + '.' + ext;
+    fs.renameSync(path, newPath);
+
+    const { title, summary, content } = req.body;
+    const postDoc = await Post.create({
+      title,
+      summary,
+      content,
+      cover: newPath, // Save the file path in the database
+    });
+
+    res.status(201).json(postDoc);
+  } catch (error) {
+    console.error("Error creating post:", error);
+    res.status(500).json({ error: "Failed to create post" });
+  }
+});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
