@@ -317,3 +317,42 @@ div.post-page div.author{
   font-size: 0.7rem;
   font-weight: bold;
 }
+
+div.edit-row{
+  text-align: center;
+  
+}
+a.edit-btn{
+  text-decoration: none;
+  margin-bottom: 200px;
+  
+}
+
+a.edit-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  align-items: center;
+  gap: 5px;
+  
+
+}
+
+a.edit-btn:hover {
+  opacity: 0.9;
+  margin-bottom: 40px;
+}
+
+div.post-page div.image{
+  margin: 50px;
+}
+
+a svg{
+  height: 17px;
+}
