@@ -118,42 +118,75 @@ const uploadMiddleware = multer({
   limits: { fileSize: 5 * 1024 * 1024 }, // Limit file size to 5MB
 });
 
-
-
-// Create post endpoint
-app.post("/post", uploadMiddleware.single("file"), async (req, res) => {
-  if (!req.file) {
-    return res.status(400).json({ message: "No file uploaded!" });
-  }
-
-  const { originalname, path } = req.file;
-  const parts = originalname.split(".");
+app.post('/post', uploadMiddleware.single('file'), async (req,res) => {
+  const {originalname,path} = req.file;
+  const parts = originalname.split('.');
   const ext = parts[parts.length - 1];
-  const newPath = `${path}.${ext}`;
-  fs.renameSync(path, newPath); // Rename the file to preserve its extension
+  const newPath = path+'.'+ext;
+  fs.renameSync(path, newPath);
 
+  const {token} = req.cookies;
+  jwt.verify(token, secret, {}, async (err,info) => {
+    if (err) throw err;
+    const {title,summary,content} = req.body;
+    const postDoc = await Post.create({
+      title,
+      summary,
+      content,
+      cover:newPath,
+      author:info.id,
+    });
+    res.json(postDoc);
+  });
+
+});
+
+// Update a post
+app.put("/post/:id", uploadMiddleware.single("file"), async (req, res) => {
   const { token } = req.cookies;
 
+  if (!token) return res.status(401).json({ message: "Unauthorized" });
+
   jwt.verify(token, secret, {}, async (err, userInfo) => {
-    if (err) {
-      console.error("Token verification failed:", err);
-      return res.status(401).json({ message: "Unauthorized" });
+    if (err) return res.status(401).json({ message: "Unauthorized" });
+
+    const { id } = req.params;
+    const { title, summary, content } = req.body;
+    let newPath = null;
+
+    if (req.file) {
+      const { originalname, path: tempPath } = req.file;
+      const ext = originalname.split(".").pop();
+      newPath = `${tempPath}.${ext}`;
+      fs.renameSync(tempPath, newPath);
     }
 
-    const { title, summary, content } = req.body;
-
     try {
-      const postDoc = await Post.create({
-        title,
-        summary,
-        content,
-        cover: newPath,
-        author: userInfo.id,
-      });
-      res.status(201).json(postDoc); // Respond with the created post
+      const postDoc = await Post.findById(id);
+      if (!postDoc) return res.status(404).json({ message: "Post not found!" });
+      if (postDoc.author.toString() !== userInfo.id)
+        return res.status(403).json({ message: "You are not the author of this post!" });
+
+      // Use updateOne to update the post
+      const updatedPost = await Post.updateOne(
+        { _id: id }, // find post by ID
+        { 
+          $set: {
+            title,
+            summary,
+            content,
+            cover: newPath ? newPath : postDoc.cover
+          }
+        }
+      );
+
+      if (updatedPost.nModified === 0) {
+        return res.status(400).json({ message: "No changes made to the post." });
+      }
+
+      res.json({ message: "Post updated successfully!" });
     } catch (error) {
-      console.error("Error creating post:", error);
-      res.status(500).json({ error: "Failed to create post" });
+      res.status(500).json({ message: "Failed to update post", error: error.message });
     }
   });
 });
