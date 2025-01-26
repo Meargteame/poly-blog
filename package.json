@@ -3,9 +3,12 @@
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
+    "data-fns": "^1.1.0",
+    "date-fns": "^4.1.0",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.5",
+    "multer": "^1.4.5-lts.1",
     "react-router-dom": "^7.1.3"
   }
 }
