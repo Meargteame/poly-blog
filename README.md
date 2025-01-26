@@ -84,57 +84,57 @@ Ensure that the API endpoints on the backend match the frontend API calls. Modif
 ## **Usage 💡** 🔗
 
 ### **Creating a Post:** 🔗
-Go to the "Create Post" page. 📝
-Fill in the title, summary, and content. 🖋️
-Optionally, upload an image or other media file. 📸
-Click "Create Post" to submit the form. On success, you'll be redirected to the homepage. 🔄
+Go to the "Create Post" page. 📝  <br>
+Fill in the title, summary, and content. 🖋️  <br>
+Optionally, upload an image or other media file. 📸  <br>
+Click "Create Post" to submit the form. On success, you'll be redirected to the homepage. 🔄<br>
 
 ### **Viewing Posts:** 🔗
-All posts will be displayed on the homepage. 📜
-You can click on each post to view its full content. 👀
+All posts will be displayed on the homepage. 📜<br>
+You can click on each post to view its full content. 👀<br>
 
 ### **Important Files 🗂️:** 🔗
 
-### **Frontend:** 🔗
-src/App.js – Main app routing and layout. 🛣️
-src/pages/CreatePost.js – Page for creating new posts. 📝
-src/components/BlogPost.js – Component for rendering individual blog posts. 🖼️
-src/utils/api.js – Utility file for handling API requests. 🔌
+### **Frontend:** 🔗<br>
+src/App.js – Main app routing and layout. 🛣️<br>
+src/pages/CreatePost.js – Page for creating new posts. 📝<br>
+src/components/BlogPost.js – Component for rendering individual blog posts. 🖼️<br>
+src/utils/api.js – Utility file for handling API requests. 🔌<br>
 
 
 ### **Backend:** 🔗
-server.js – Main server file. 🖥️
-routes/postRoutes.js – Routes for handling CRUD operations on posts. 🔀
-models/Post.js – Mongoose model for the blog post schema. 🗃️
+server.js – Main server file. 🖥️<br>
+routes/postRoutes.js – Routes for handling CRUD operations on posts. 🔀<br>
+models/Post.js – Mongoose model for the blog post schema. 🗃️<br>
 
 
-### **API Endpoints 🌐** 🔗
-POST /post – Create a new post. 📝
-Request Body:
+### **API Endpoints 🌐** 🔗<br>
+POST /post – Create a new post. 📝<br>
+Request Body:<br>
 
-title: String 📌
-summary: String 🗣️
-content: String 🖋️
-file: File (optional) 📂
+title: String 📌<br>
+summary: String 🗣️<br>
+content: String 🖋️<br>
+file: File (optional) 📂<br>
 Response: JSON with created post details.
-
+<br>
 ### **GET /posts – Retrieve all posts. 📜🌐** 🔗
-
+<br>
 Response: JSON array with post details.
-
+<br>
 ### **GET /post/:id – Retrieve a single post by ID. 🔍** 🔗
-
-Response: JSON with post details.
+<br>
+Response: JSON with post details.<br>
 ### **GET /post/:id – Retrieve a single post by ID. 🔍** 🔗
-
+<br>
 ### **License 🛡️🤝* 🔗
-
+<br>
 This project is licensed under the MIT License – see the LICENSE file for details.
 ### **Contributing 🤝* 🔗
-
-If you'd like to contribute to the development of Poly Blog, feel free to fork this repository and submit pull requests. Please ensure all code adheres to the project’s coding standards and write clear commit messages. ✍️
-### **Future Improvements 🔮* 🔗
-
+<br>
+If you'd like to contribute to the development of Poly Blog, feel free to fork this repository and submit pull requests. Please ensure all code adheres to the project’s coding standards and write clear commit messages. ✍️<br>
+###**Future Improvements 🔮* 🔗
+<br>
 User authentication (signup/login) for managing posts. 🔐
 Adding tags/categories for better content organization. 🏷️
 Implementing comments and likes for engagement. 💬👍
