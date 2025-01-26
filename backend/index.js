@@ -120,8 +120,6 @@ const uploadMiddleware = multer({
 
 
 
-
-
 // Create post endpoint
 app.post("/post", uploadMiddleware.single("file"), async (req, res) => {
   if (!req.file) {
@@ -167,7 +165,11 @@ app.get('/post', async (req, res) => {
   
 });
 
-
+app.get('/post/:id',async (req,res)=>{
+  const {id} = req.params;
+  const postDoc = await Post.findById(id).populate('author',['username']);
+  res.json(postDoc);
+})
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
