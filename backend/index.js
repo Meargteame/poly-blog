@@ -118,47 +118,6 @@ const uploadMiddleware = multer({
   limits: { fileSize: 5 * 1024 * 1024 }, // Limit file size to 5MB
 });
 
-// Create post endpoint
-// app.post("/post", uploadMiddleware.single("file"), async (req, res) => {
-//   if (!req.file) {
-//     return res.status(400).json({ message: "No file uploaded!" });
-//   }
-
-//   const { originalname, path } = req.file;
-//   const parts = originalname.split(".");
-//   const ext = parts[parts.length - 1];
-//   const newPath = path + "." + ext;
-//   fs.renameSync(path, newPath); // Rename the file to preserve its extension
-
-
-
-//   const {token} = req.cookies;
-  
-//   jwt.verify(token, secret, {}, async (err, userInfo) => {
-//     if (err) {
-//       console.error("Token verification failed:", err);
-//       return res.status(401).json({ message: "Unauthorized" });
-//     }
-
-
-//     const { title, summary, content } = req.body;
-//     try {
-//       const postDoc = await Post.create({
-//         title,
-//         summary,
-//         content,
-//         cover: newPath, 
-//         author:userInfo.id
-//       });
-//       res.status(201).json(postDoc);
-//     } catch (error) {
-//       console.error("Error creating post:", error);
-//       res.status(500).json({ error: "Failed to create post" });
-//     }
-//   });
-
-//     res.json(userInfo.username);
-//   });
 
 
 
